@@ -29,6 +29,3 @@ def seconds_to_str(seconds: int) -> str:
     result += ('%02ds' % seconds)
 
     return result
-
-
-

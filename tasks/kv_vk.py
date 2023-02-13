@@ -48,4 +48,3 @@ def flip_kv_vk_safe(d: dict[KT, KV]) -> dict[KV, list[KT]]:
     for value in values:
         result[value] = [k for k, v in d.items() if v == value]
     return result
-

@@ -19,4 +19,3 @@ def cartesian_product(arr1: list[Any], arr2: list[Any]) -> list:
         for b in arr2:
             result.append((a, b))
     return result
-
