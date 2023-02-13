@@ -27,8 +27,25 @@ class Graph:
     def __init__(self, root: Node):
         self._root = root
 
-    def dfs(self) -> list[Node]:
-        raise NotImplementedError
+    def dfs(self, start=None, stack=None) -> list[Node]:
+        # raise NotImplementedError
 
-    def bfs(self) -> list[Node]:
-        raise NotImplementedError
+        if start is None or stack is None:
+            start = self._root
+            stack: list = [start]
+
+        for item in start.outbound:
+            if item not in stack:
+                stack.append(item)
+                self.dfs(item, stack)
+        return stack
+
+    def bfs(self, vertices=None) -> list[Node]:
+        # raise NotImplementedError
+
+        if vertices is None:
+            vertices: list = [self._root]
+
+        for item in vertices:
+            vertices += [x for x in list(item.outbound) if x not in vertices]
+        return vertices
